@@ -30,7 +30,7 @@ function Panorama({ ...props }) {
 export default function AvatarEditScreen({ selectedOptions }) {
   const d = 8.25
   const mouse = useRef({ x: 0, y: 0 })
-  const avatarScale = 1.7
+  const avatarScale = 4.25
 
   const updateMousePosition = e => {
     mouse.current = getMousePos(e)

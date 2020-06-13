@@ -103,7 +103,7 @@ export default function AvatarBody({
    */
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position={[0,0,0]} scale={[2.5, 2.5, 2.5]}>
+      <group position={[0,0,0]} scale={[1, 1, 1]}>
         <Suspense fallback={null}>
         { (body && body.file)? <GltfObject src={'models/' + body.file} onLoaded={data => { setModelsData('body', data) }} node={'Armature001'} /> : null }
         </Suspense>
