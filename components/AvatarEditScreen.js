@@ -1,5 +1,5 @@
 import ReactDOM                    from "react-dom"
-import React, { Suspense, useRef } from "react"
+import React, {Suspense, useEffect, useRef} from 'react'
 import { Canvas, useLoader }       from "react-three-fiber"
 import AvatarBody            from "./AvatarBody"
 import { getMousePos }       from "../lib/utils"
@@ -36,9 +36,12 @@ export default function AvatarEditScreen({ selectedOptions }) {
     mouse.current.y += (window.innerHeight / 2) * 0.5
   }
 
-  if (window) {
+  useEffect(() => {
     window.addEventListener('mousemove', updateMousePosition)
-  }
+    return () => {
+      window.removeEventListener('mousemove', updateMousePosition)
+    }
+  }, [])
 
   // onMouseMove={updateMousePosition}
 
