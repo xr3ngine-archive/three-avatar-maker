@@ -6,10 +6,11 @@ import { getMousePos }       from "../lib/utils"
 import * as THREE            from 'three'
 
 function Plane({ ...props }) {
+  // <meshLambertMaterial attach="material" color="#ff0000" transparent={false} opacity={0.2} />
   return (
     <mesh {...props} receiveShadow>
-      <planeGeometry attach="geometry" args={[50, 50, 1, 1]} />
-      <meshLambertMaterial attach="material" color="#ff0000" transparent={false} opacity={0.2} />
+      <planeGeometry attach="geometry" args={[100, 100, 1, 1]} />
+      <shadowMaterial attach="material" opacity={0.5} />
     </mesh>
   )
 }
@@ -78,6 +79,7 @@ export default function AvatarEditScreen({ selectedOptions }) {
       </Suspense>
       <group position={[0, -4, 0]}>
         <AvatarBody mouse={mouse} selectedOptions={selectedOptions} castShadow scale={[avatarScale, avatarScale, avatarScale]} />
+        <Plane rotation={[Math.PI*-0.5, 0, 0]}></Plane>
       </group>
     </Canvas>
   )

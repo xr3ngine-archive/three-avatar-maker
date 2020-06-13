@@ -53,6 +53,14 @@ export default function AvatarBody({
   function setModelsData(slot, data) {
     modelsData[slot] = data
 
+    if (props.castShadow) {
+      Object.values(data.nodes).forEach(n => {
+        if (n.isMesh && n.material) {
+          n.castShadow = true
+        }
+      })
+    }
+
     if (slot === 'body' && modelsData.body && modelsData.body.nodes && color) {
       setBodyColor(modelsData.body.nodes, color)
     }
